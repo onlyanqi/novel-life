@@ -5,7 +5,6 @@ import Signup from "./pages/signup";
 import Home from "./pages/home";
 import News from "./pages/news";
 import Help from "./pages/help";
-import "./style/header.css";
 import "./style/comm.css";
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {
@@ -108,7 +107,7 @@ function App() {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Noval Life ©2020 Created by Anqi Chen
+          Noval Life ©2020 Created by Group 25
         </Footer>
       </Layout>
     </BrowserRouter>
