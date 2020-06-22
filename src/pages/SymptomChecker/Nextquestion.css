@@ -1,0 +1,38 @@
+.wrap {
+    width: 1000px;
+    border: 5px solid black;
+    margin: 40px;
+    margin-left: 200px;
+    height: 300px;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    margin-top: 100px;
+}
+
+.img1 
+{
+    background-color: #fff7e6;
+    height: 60px;
+    padding-top: 10px;
+    border-radius:50px;
+    border: 1.5px solid black;
+}
+
+.tent1
+{
+    padding-top: 40px;
+}
+
+
+@media (max-width:500px){
+    .wrap {
+        width: 200px;
+        border: 5px solid black;
+        margin: 30px;
+        margin-left: -15px;
+        height: 450px;
+        border-radius: 50px;
+        background-color: #f2f2f2;
+        margin-top: 100px;
+}
+}

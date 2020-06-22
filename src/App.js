@@ -5,6 +5,15 @@ import Signup from "./pages/signup";
 import Home from "./pages/home";
 import News from "./pages/news";
 import Help from "./pages/help";
+import SymptomChecker from "./pages/SymptomChecker";
+import Nextquestion from "./pages/SymptomChecker/Nextquestion"
+import NegativeOutcome from "./pages/SymptomChecker/NegativeOutcome"
+import PositiveOutcome from "./pages/SymptomChecker/CovidPositive"
+import PositiveCheck from "./pages/Funds/positivecheck"
+import NegativeCheck from "./pages/Funds/negativecheck"
+import CheckFunds from "./pages/Funds/checkfund"
+
+
 import "./style/comm.css";
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {
@@ -18,6 +27,8 @@ import {
   CloudOutlined,
   TeamOutlined,
   CoffeeOutlined,
+  CheckCircleOutlined,
+  MoneyCollectOutlined
 } from "@ant-design/icons";
 const { Header, Content, Footer } = Layout;
 
@@ -89,6 +100,14 @@ function App() {
               <CoffeeOutlined />
               fun center
             </Menu.Item>
+            <Menu.Item key="10">
+              <CheckCircleOutlined />
+                <Link to="/SymptomChecker">Symptom checker</Link>
+            </Menu.Item>
+            <Menu.Item key="11">
+            <MoneyCollectOutlined />
+                <Link to="/fundchecker">Check eligibility for funds</Link>
+            </Menu.Item>
           </Menu>
         </Header>
         <Content
@@ -104,6 +123,15 @@ function App() {
             <Route path="/signup/" exact component={Signup} />
             <Route path="/help/" exact component={Help} />
             <Route path="/news/" exact component={News} />
+            <Route path="/SymptomChecker/" exact component={SymptomChecker} />
+            <Route path = "/nextquestion" exact component = {Nextquestion}></Route>
+        <Route path = "/negativeoutcome" exact component = {NegativeOutcome}></Route>
+        <Route path = "/positiveoutcome" exact component = {PositiveOutcome}></Route>
+        <Route path = "/fundchecker" exact component = {CheckFunds}></Route>
+        <Route path = "/PositiveCheck" exact component = {PositiveCheck}></Route>
+        <Route path = "/NegativeCheck" exact component = {NegativeCheck}></Route>
+        
+
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>

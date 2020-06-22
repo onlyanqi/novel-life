@@ -1,0 +1,20 @@
+.checkwrap3
+{
+    width: 800px;
+    padding: 15px;
+    margin: 40px;
+    margin-left: 450px;
+    height: 500px;
+    margin-top: 70px;
+}
+
+@media (max-width:500px){
+    .checkwrap3
+    {
+        width: 200px;
+        padding: 15px;
+        height: auto;
+        margin-left: -15px;
+        margin-top: 70px;
+    }
+}
