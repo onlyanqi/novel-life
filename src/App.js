@@ -49,8 +49,8 @@ function App() {
         >
           <Row type="flex" justify="space-between">
             <Col xs={20} sm={20} md={18} lg={16} xl={14}>
-              <span className="header-logo" style={{color:"#FFFF"}}> NOVAL LIFE </span>
-              <span className="header-txt" style={{color:"#FFFF"}}> We All Together. </span>
+              <span className="header-logo" style={{color:"#FFFF", fontVariant:""}}> NOVAL LIFE </span>
+              <span className="header-txt" style={{color:"#FFFF"}}> We Are All In This Together. </span>
             </Col>
             <Col xs={4} sm={4} md={4} lg={4} xl={4}>
               <Button type="primary" shape="circle">

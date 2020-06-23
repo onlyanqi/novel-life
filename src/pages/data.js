@@ -79,9 +79,11 @@ function Data() {
                         style={{
                           textAlign:"center", 
                           align:"center",  
-                          color:"#011528"
+                          color:"#011528",
+                          border:"none",
+                          backgroundColor:"#f0ad4e"
                         }}>
-                      {latest.cases}
+                      <h1>{latest.cases}</h1>
                       <br></br>
                       <small style={{
                           textAlign:"center", 
@@ -96,9 +98,10 @@ function Data() {
                       style={{
                           textAlign:"center", 
                           align:"center",
-                          color:"#011528"
+                          color:"#011528",
+                          backgroundColor:"#d9534f"
                         }}>
-                      {latest.deaths}
+                      <h1>{latest.deaths}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
@@ -108,9 +111,10 @@ function Data() {
                       style={{
                         textAlign:"center", 
                         align:"center",
-                        color:"#011528"
+                        color:"#011528",
+                        backgroundColor:"#5cb85c"
                       }}>
-                      {latest.recovered}
+                      <h1> {latest.recovered}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
@@ -121,9 +125,10 @@ function Data() {
                       style={{
                         textAlign:"center", 
                         align:"center",
-                        color:"#011528"
+                        color:"#011528",
+                        backgroundColor:"#5bc0de"
                       }}>
-                      {latest.active}
+                      <h1>{latest.active}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>

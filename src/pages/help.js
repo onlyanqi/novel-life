@@ -6,7 +6,7 @@ import "../style/help.css";
 
 function Help() {
   const [viewport, setViewport] = useState({
-    width: 740,
+    width: "100%",
     height: 600,
     latitude: 45.216,
     longitude: -63.1978,
@@ -30,10 +30,10 @@ function Help() {
     },
   ];
   return (
-    <div className="container">
-      <Row className="comm-main" type="flex" justify="center">
+    <div className="container" style={{width:"100%"}}>
+      <Row className="comm-main" type="flex" justify="center" style={{width:"100%"}}>
         {/* <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}> */}
-          <div className="map-box">
+          <div className="map-box" style={{width:"100%"}}>
             <h1 style={{color:"#FFFF"}}>COVID-19 help near you</h1>
             <p style={{color:"#FFFF"}}>
               This map shows some verified places and organisations where you
@@ -41,7 +41,10 @@ function Help() {
               mental health and surports for children, seniors and people with
               disabilities.
             </p>
-            <ReactMapGL
+            </div>
+            </Row>
+            <Row  justify="center" style={{width:"100%"}}>
+            <ReactMapGL style={{width:"800px"}}
               {...viewport}
               mapboxApiAccessToken={
                 "pk.eyJ1IjoiYW5xaTI3IiwiYSI6ImNrYmY3OW9kajBsaXYycXBjYjlkeHV2ZWQifQ.TRv69mW_zy814wzhMrwTFw"
@@ -49,6 +52,11 @@ function Help() {
               mapStyle="mapbox://styles/anqi27/ckbf8p03e23a11htdg6evsdbx"
               onViewportChange={(nextViewport) => setViewport(nextViewport)}
             />
+            </Row>
+            
+            <Row>
+
+           
             <List
               header={
                 <div>
@@ -66,12 +74,14 @@ function Help() {
                 </List.Item>
               )}
             />
-          </div>
+
+        </Row>
+       
         {/* </Col> */}
         {/* <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
           <User />
         </Col> */}
-      </Row>
+      
     </div>
   );
 }

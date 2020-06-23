@@ -103,7 +103,7 @@ function News() {
         </div>
             
           <List
-            header={<div>Latest Updates</div>}
+            header={<div style={{color:"#FFFF", fontVariant:"small-caps"}}>Latest Updates</div>}
             itemLayout="vertical"
             dataSource={data}
             renderItem={(item) => (
