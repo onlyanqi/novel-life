@@ -19,9 +19,11 @@ const User = () => {
       <div className="user-introduction">
         Hello! you've logged in
         <Divider>Social Media</Divider>
-        <Avatar size={28} icon={<TwitterOutlined />} className="account" />
-        <Avatar size={28} icon={<FacebookOutlined />} className="account" />
-        <Avatar size={28} icon={<LinkedinOutlined />} className="account" />
+        <a href="https://www.twitter.com"><Avatar size={28} icon={<TwitterOutlined />} className="account" /></a>
+        <a href="https://www.facebook.com"><Avatar size={28} icon={<FacebookOutlined />} className="account" /></a>
+        <a href="https://www.linkedin.com"><Avatar size={28} icon={<LinkedinOutlined />} className="account" /></a>
+        
+        
       </div>
       <div className="option-div comm-box">
         <div>
@@ -30,7 +32,8 @@ const User = () => {
             alt="Be a volunteer"
             width="80%"
           />
-          <Button type="primary">Become a volunteer</Button>
+          <a href= "https://volunteerns.ca/"><Button type="primary">Become a volunteer</Button></a>
+          
         </div>
         <div>
           <img
@@ -38,7 +41,9 @@ const User = () => {
             alt="Financial support"
             width="80%"
           />
+          <a href="https://www.canada.ca/en/department-finance/economic-response-plan.html"> 
           <Button type="primary">Apply for financial support</Button>
+          </a>
         </div>
         <div>
           <img
@@ -46,7 +51,9 @@ const User = () => {
             alt="Medical assisstants"
             width="80%"
           />
+          <a href="https://811.novascotia.ca/">
           <Button type="primary">Seek for medical help</Button>
+          </a>
         </div>
         <div>
           <img
@@ -54,7 +61,9 @@ const User = () => {
             alt="Support Business"
             width="80%"
           />
+          <a href="https://novascotia.ca/coronavirus/support/"> 
           <Button type="primary">Seek for business support</Button>
+          </a>
         </div>
 
         <div>
@@ -63,7 +72,10 @@ const User = () => {
             alt="Support seniors"
             width="80%"
           />
+          <a href="https://novascotia.ca/seniors/" >
           <Button type="primary">I'm a senior</Button>
+
+          </a>
         </div>
       </div>
     </div>
