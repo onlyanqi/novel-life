@@ -3,25 +3,30 @@ import {Link} from 'react-router-dom'
 import PositiveCheck from './positivecheck';
 import NegativeCheck from './negativecheck';
 import  '../Funds/checkfund.css'
+import { Row } from 'antd';
 
 
 const Fund = (props) => {
     return (
-        <div className="checkwrapper">
-            <div className ="checkimg">
-                <p style ={{fontSize : "20px"}}><b>Questionnaire</b></p>
-            </div>
+        <Row>
+        <div className="checkwrapper" style={{justifyContent:"center"}}>
+                        <div className ="img" style={{justifyContent:"center"}}>
+                            <p style ={{fontSize : "20px", color:"#FFFF"}}><b>Questionnaire</b></p>
+                        </div>
 
-            <div class ="checktent">
-              <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center"}}>Q) Are You Citizen or Permanent Resident of Canada?</label>
-                <p>
-                <Link to = "/positivecheck"><button type="button" onClick = {<PositiveCheck/>} style ={{fontSize:"20px",marginLeft:"30px"}}>Yes</button></Link>
-                </p>
-                <p>
-                <Link to = "/negativecheck"><button type="button" onClick = {<NegativeCheck/>} style ={{fontSize:"20px",marginLeft:"30px"}}>No</button></Link>
-                </p>
-            </div>   
-    </div>
+                        <div class ="checktent" style={{justifyContent:"center"}}>
+                        <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center", color:"#FFFF"}}>Q) Are you a Canadian Citizen or a Permanent Resident?</label>
+                            <p>
+                            <Link to = "/positivecheck"><button type="button"  onClick = {<positivecheck/>} style ={{fontSize:"20px", margin:"10px", marginTop:"10px", color:"#011528"}}>Yes</button></Link>
+                            </p>
+                            <p>
+                            <Link to = "/negativecheck"><button type="button" onClick = {<negativecheck/>} style ={{fontSize:"20px",margin:"10px", color:"#011528"}}>No</button></Link>
+                            </p>
+                        </div>   
+                </div>
+
+        </Row>
+        
 
     )};
 

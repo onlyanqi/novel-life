@@ -1,22 +1,24 @@
 .wrap {
-    width: 1000px;
-    border: 5px solid black;
-    margin: 40px;
-    margin-left: 200px;
+    width: 100%;
+    
     height: 300px;
     border-radius: 50px;
-    background-color: #f2f2f2;
+    background-color: #011528;
     margin-top: 100px;
+    color:"#FFFF";
+    justify-content: "center";
 }
 
-.img1 
+.img1
 {
-    background-color: #fff7e6;
-    height: 60px;
-    padding-top: 10px;
-    border-radius:50px;
-    border: 1.5px solid black;
+    background-color: #011528;
+    height: "100%";
+    padding-top: "10px";
+   
+    text-align: center;
+    
 }
+
 
 .tent1
 {
@@ -24,8 +26,8 @@
 }
 
 
-@media (max-width:500px){
-    .wrap {
+/* @media (max-width:500px){
+    .wrapper {
         width: 200px;
         border: 5px solid black;
         margin: 30px;
@@ -35,4 +37,5 @@
         background-color: #f2f2f2;
         margin-top: 100px;
 }
-}
+
+} */

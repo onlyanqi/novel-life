@@ -1,13 +1,13 @@
 .wrap2
 {
-    width: 800px;
-    border: 5px solid black;
+    justify-content:"center";
+    width: 100%;
     padding: 15px;
-    margin: 40px;
-    margin-left: 450px;
-    height: 500px;
+    
+    
+    height: 100%;
     margin-top: 70px;
-    background-color: #ff704d;
+    background-color: #dddddd;
 }
 
 .content11{
@@ -16,7 +16,7 @@
     text-align: left;
 }
 
-@media (max-width:500px){
+/* @media (max-width:500px){
     .wrap2
     {
         width: 200px;
@@ -28,4 +28,4 @@
         background-color:#ff704d;
         margin-top: 70px;
     }
-}
+} */

@@ -1,15 +1,14 @@
 .checkwrap3
 {
-    width: 800px;
+    width: 100%;
     padding: 15px;
-    margin: 40px;
-    margin-left: 450px;
-    height: 500px;
+    height: 100%;
     margin-top: 70px;
+    justify-content: center;
 }
 
-@media (max-width:500px){
-    .checkwrap3
+/* @media (max-width:500px){
+    .checkwrap2
     {
         width: 200px;
         padding: 15px;
@@ -17,4 +16,4 @@
         margin-left: -15px;
         margin-top: 70px;
     }
-}
+} */

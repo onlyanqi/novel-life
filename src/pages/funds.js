@@ -5,7 +5,8 @@ import  Funds from '../pages/Funds/checkfund.js'
 
 const Symptom = (props) => {
     return (
-        <div>
+        
+        <div style={{width:"100%", height:"100%", justifyContent:"cenetr"}}>
             <Funds/>    
             </div>   
 
