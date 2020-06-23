@@ -13,6 +13,7 @@
     "antd": "^4.3.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "formik": "^2.1.4",
     "google-map-react": "^1.1.7",
     "http-server": "^0.12.3",
     "mapbox-gl": "^1.11.0",
@@ -23,7 +24,8 @@
     "react-map-gl": "^5.2.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-twitter-embed": "^3.0.3"
+    "react-twitter-embed": "^3.0.3",
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start": "react-scripts start",
