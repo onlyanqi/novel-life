@@ -1,8 +1,10 @@
 import React from "react";
 import User from "./user";
+import { TwitterTimelineEmbed, TwitterHashtagButton } from 'react-twitter-embed';
 import { List, Row, Col } from "antd";
 import { CalendarOutlined, BookOutlined } from "@ant-design/icons";
 import "../style/comm.css";
+
 
 function News() {
   const data = [
@@ -52,6 +54,35 @@ function News() {
               width="100%"
             />
           </div>
+          <TwitterHashtagButton
+    tag={'COVID19'}
+  />
+        <table id='t01'>
+            <tr>
+                <th>Tweets by Justin Trudeau</th>
+                <th>Tweets by Nova Scotia News</th>
+                
+            </tr>
+            <tr>
+                <td><TwitterTimelineEmbed
+        sourceType="profile"
+        screenName="JustinTrudeau"
+        theme = "dark"
+        options={{height: 500, width: 500}}/></td>
+
+        <td>
+          <TwitterTimelineEmbed
+        sourceType="profile"
+        screenName="NovaScotiaNews"
+        theme = "dark"
+        options={{height: 500, width:500}}/>
+        </td>
+
+                
+            </tr>
+            </table>
+        
+
           <List
             header={<div>Latest Updates</div>}
             itemLayout="vertical"

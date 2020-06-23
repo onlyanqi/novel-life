@@ -14,6 +14,8 @@ import NegativeCheck from "./pages/Funds/negativecheck"
 import CheckFunds from "./pages/Funds/checkfund"
 
 
+import Map from "./pages/map";
+import Data from "./pages/data";
 import "./style/comm.css";
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {
@@ -78,11 +80,13 @@ function App() {
             </Menu.Item>
             <Menu.Item key="4">
               <PieChartOutlined />
-              data
+              <Link to="/data"> data</Link>
             </Menu.Item>
             <Menu.Item key="5">
               <EnvironmentOutlined />
-              map
+              <span>
+                <Link to="/map">map</Link>
+              </span>
             </Menu.Item>
             <Menu.Item key="6">
               <CloudOutlined />
@@ -132,6 +136,8 @@ function App() {
         <Route path = "/NegativeCheck" exact component = {NegativeCheck}></Route>
         
 
+            <Route path="/map/" exact component={Map} />
+            <Route path="/data/" exact component={Data} />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
