@@ -12,6 +12,7 @@ import PositiveOutcome from "./pages/SymptomChecker/CovidPositive"
 import PositiveCheck from "./pages/Funds/positivecheck"
 import NegativeCheck from "./pages/Funds/negativecheck"
 import CheckFunds from "./pages/Funds/checkfund"
+import Resource from "./pages/resources";
 
 
 import Map from "./pages/map";
@@ -90,23 +91,15 @@ function App() {
             </Menu.Item>
             <Menu.Item key="6">
               <CloudOutlined />
-              resources
-            </Menu.Item>
-            <Menu.Item key="8">
-              <HeartOutlined />
-              virtual care
-            </Menu.Item>
-            <Menu.Item key="9">
-              <CoffeeOutlined />
-              fun center
+              <Link to="/resource/">resources</Link>
             </Menu.Item>
             <Menu.Item key="10">
               <CheckCircleOutlined />
-                <Link to="/SymptomChecker">Symptom checker</Link>
+                <Link to="/SymptomChecker">symptom checker</Link>
             </Menu.Item>
             <Menu.Item key="11">
             <MoneyCollectOutlined />
-                <Link to="/fundchecker">Check eligibility for funds</Link>
+                <Link to="/fundchecker">funding</Link>
             </Menu.Item>
           </Menu>
         </Header>
@@ -130,7 +123,7 @@ function App() {
         <Route path = "/fundchecker" exact component = {CheckFunds}></Route>
         <Route path = "/PositiveCheck" exact component = {PositiveCheck}></Route>
         <Route path = "/NegativeCheck" exact component = {NegativeCheck}></Route>
-        
+        <Route path="/resource/" exact component={Resource}/>
 
             <Route path="/map/" exact component={Map}/>
             <Route path="/data/" exact component={Data} />

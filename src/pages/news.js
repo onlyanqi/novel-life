@@ -46,43 +46,62 @@ function News() {
   return (
     <div className="container">
       <Row className="comm-main" type="flex" justify="center">
-        {/* <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}> */}
-          <div>
-            <img
-              src="https://www.ctvnews.ca/polopoly_fs/1.4977926.1591803966!/httpImage/image.jpg_gen/derivatives/landscape_960/image.jpg"
-              alt="Covid19 Vaccine"
-              width="100%"
-            />
-          </div>
-          <TwitterHashtagButton
-    tag={'COVID19'}
-  />
-        <table id='t01'>
-            <tr>
-                <th>Tweets by Justin Trudeau</th>
-                <th>Tweets by Nova Scotia News</th>
-                
-            </tr>
-            <tr>
-                <td><TwitterTimelineEmbed
-        sourceType="profile"
-        screenName="JustinTrudeau"
-        theme = "dark"
-        options={{height: 500, width: "100%"}}/></td>
+        
+        
+        <div id='t01'>
 
-        <td>
-          <TwitterTimelineEmbed
+        <Row align="center">
+
+          <h1 style={{color:"#FFFF", fontVariant:"small-caps"}}>Tweets</h1>
+          <br></br>
+      
+        </Row>
+
+        <Row align="center"><TwitterHashtagButton
+    tag={'novallife'}></TwitterHashtagButton></Row>
+        <br></br>
+        <Row>
+
+         <Col style={{margin:"10px"}}> 
+   
+       
+         <TwitterTimelineEmbed
+        sourceType="profile"
+        screenName="nshealth"
+        theme = "dark"
+        options={{height: 500, width: "100%"}}/></Col> 
+
+         <Col style={{margin:"10px"}}> 
+         
+       
+         <TwitterTimelineEmbed
         sourceType="profile"
         screenName="NovaScotiaNews"
+        theme = "light"
+        options={{height: 500, width:"100%"}}/></Col> 
+
+        <Col style={{margin:"10px"}}> 
+      
+       
+         <TwitterTimelineEmbed
+        sourceType="profile"
+        screenName="nsgov"
         theme = "dark"
-        options={{height: 500, width:500}}/>
-        </td>
+        options={{height: 500, width: "100%"}}/></Col> 
 
-                
-            </tr>
-            </table>
-        
+        <Col style={{margin:"10px"}}> 
+         
+       
+         <TwitterTimelineEmbed
+        sourceType="profile"
+        screenName="Canada"
+        theme = "light"
+        options={{height: 500, width: "100%"}}/></Col>
 
+        </Row>
+
+        </div>
+            
           <List
             header={<div>Latest Updates</div>}
             itemLayout="vertical"

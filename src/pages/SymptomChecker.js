@@ -4,7 +4,7 @@ import Symptoms from '../pages/SymptomChecker/Symptom.js'
 
 const Symptom = (props) => {
     return (
-        <div>
+        <div style={{width:"100%"}}>
             <Symptoms/>
            
             </div>   

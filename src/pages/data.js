@@ -36,10 +36,11 @@ function Data() {
         return(
             <Card  bordered={false}
     hoverable
-    style={{ margin: "10px"}}
-    cover={<img alt="country" src={data.countryInfo.flag} />}
+    style={{ margin: "10px", textAlign:"center", width:"300px", color:"#011528"}}
+    cover={<img alt="country" style={{height:"200px", scale:"cover"}} src={data.countryInfo.flag} />}
   >
-    <Meta title={data.country} description="Covid-19 data" />
+    <Meta title={data.country} style={{color:"#011528"}}/>
+    <br></br>
                 Cases: {data.cases} <br></br>
                 Deaths: {data.deaths} <br></br>
                 Recovered: {data.recovered} <br></br>
@@ -47,13 +48,10 @@ function Data() {
                 Today's Deaths: {data.todayDeaths} <br></br>
                 Active: {data.active} <br></br>
                 Critical: {data.critical} <br></br>
-
-                <small>Last Updated {lastUpdated} </small>
+    <br></br>
+                <small style={{color:"#011528"}}>Last Updated {lastUpdated} </small>
   </Card>
-               
-        
-
-        
+                 
         );
     });
 
@@ -62,65 +60,86 @@ function Data() {
     return (
     <div className="container">
       <Row className="comm-main" type="flex" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}>
         
-        
-
         
           <div className="map-box">
-            <h1>COVID-19 DATA</h1>
-            <Divider></Divider>
-      
-            <p>
-              The data about the corona virus cases all over the world.
-            </p>
 
-            <div className="site-card-wrapper">
-    <Row gutter={16}>
-      <Col span={6}>
-        <Card bg = "secondary" title="Cases" bordered={false}>
-        {latest.cases}
-        <br></br>
-        <small>Last Updated {lastUpdated} </small>
-        </Card>
-      </Col>
-      <Col span={6}>
-        <Card bg = "danger" title="Deaths" bordered={false}>
-        {latest.deaths}
-        <br></br>
-        <small>Last Updated {lastUpdated} </small>
-        </Card>
-      </Col>
-      <Col span={6}>
-        <Card bg = "success" title="Recovered" bordered={false}>
-        {latest.recovered}
-        <br></br>
-        <small>Last Updated {lastUpdated} </small>
-        </Card>
-        
-      </Col>
-      <Col span={6}>
-        <Card bg = "danger" title="Active" bordered={false}>
-        {latest.active}
-        <br></br>
-        <small>Last Updated {lastUpdated} </small>
-        </Card>
-      </Col>
-      
-      <h2> Country wise Data</h2> 
-      <Divider></Divider>
-      
-      {countries}
-      
-    </Row>
-  </div>
+                <Row>
+                      <h1 style={{color:"#FFFF"}}>COVID-19 DATA</h1>
+                      <Divider></Divider>
+                
+                      <p style={{color:"#FFFF"}}>
+                        The data about the corona virus cases all over the world.
+                      </p>
+                </Row>
+                  
+                  <Row gutter={16}>
+                    <Col span={6}>
+                      <Card bg = "secondary" title="Cases" 
+                        style={{
+                          textAlign:"center", 
+                          align:"center",  
+                          color:"#011528"
+                        }}>
+                      {latest.cases}
+                      <br></br>
+                      <small style={{
+                          textAlign:"center", 
+                          align:"center"
+                        }}>Last Updated {lastUpdated} </small>
+                      </Card>
+                    </Col>
+
+
+                    <Col span={6}>
+                      <Card bg = "danger" title="Deaths" bordered={false} 
+                      style={{
+                          textAlign:"center", 
+                          align:"center",
+                          color:"#011528"
+                        }}>
+                      {latest.deaths}
+                      <br></br>
+                      <small>Last Updated {lastUpdated} </small>
+                      </Card>
+                    </Col>
+                    <Col span={6}>
+                      <Card bg = "success" title="Recovered" bordered={false}
+                      style={{
+                        textAlign:"center", 
+                        align:"center",
+                        color:"#011528"
+                      }}>
+                      {latest.recovered}
+                      <br></br>
+                      <small>Last Updated {lastUpdated} </small>
+                      </Card>
+                      
+                    </Col>
+                    <Col span={6}>
+                      <Card bg = "danger" title="Active" bordered={false}
+                      style={{
+                        textAlign:"center", 
+                        align:"center",
+                        color:"#011528"
+                      }}>
+                      {latest.active}
+                      <br></br>
+                      <small>Last Updated {lastUpdated} </small>
+                      </Card>
+                    </Col>
+                    
+                    <h2 style={{color:"#FFFF", margin:"15px"}}> Country wise Data</h2> 
+                    <Divider></Divider>
+                    
+                  </Row>
+                  
+                  <Row style={{width:"100%"}}>
+                  {countries}
+                  </Row>
+               
           </div>
-        </Col>
-        {/* <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
-          <User />
-        </Col> */}
       </Row>
-      
     </div>
   );
 }

@@ -45,7 +45,7 @@ function Map() {
                 style={{align:"center", 
                 alignSelf:"center", alignContent:"center",
                 alignItems:"center", width:"100%"}}>
-      <Row className="comm-main" type="flex" justify="center">
+      <Row className="comm-main" type="flex" justify="center" style={{opacity:"0.9", width:"100%"}}>
         {/* <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}> */}
         
         
@@ -77,10 +77,11 @@ function Map() {
     </Row>
   </div> */}
 
-            <Iframe style="width:100%" width="1150" height="700" src="https://coronavirus.app/map?embed=true" 
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe>
-            <Iframe style="width:100%" width="1150" height="700" src="https://coronavirus.app/analytics?embed=true" 
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe>
+            <Iframe style={{backgroundColor:"#011528"}} frameColor="#011528"
+            width="100%" height="700" src="https://coronavirus.app/map?embed=true" 
+            frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe>
+            {/* <Iframe width="100%" height="700" src="https://coronavirus.app/analytics?embed=true" 
+            frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe> */}
             
           {/* </div> */}
         {/* </Col> */}
