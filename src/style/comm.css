@@ -1,5 +1,6 @@
 body {
-  background-color: #f6f6f6;
+  background-color: #011528;
+  width: "100%";
 }
 
 .comm-left {
@@ -22,5 +23,6 @@ body {
 }
 
 .site-layout .site-layout-background {
-  background: #fff;
+  background: #011528;
+  width: "100%";
 }

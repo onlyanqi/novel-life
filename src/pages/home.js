@@ -48,11 +48,11 @@ function Home() {
   ];
 
   return (
-    <div className="container">
-      <Row className="comm-main" type="flex" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}>
+    <div className="container" style={{backgroundColor:"#011528"}}>
+      <Row className="comm-main" type="flex" justify="center" style={{backgroundColor:"#011528"}}>
+        <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16} style={{backgroundColor:"#011528"}}>
           <List
-            header={<div>Coronavirus Disease | COVID-19</div>}
+            header={<div style={{color:"#FFFF"}}>Coronavirus Disease | COVID-19</div>}
             itemLayout="vertical"
             dataSource={mylist}
             renderItem={(item) => (
@@ -71,9 +71,9 @@ function Home() {
             )}
           />
         </Col>
-        <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
+        <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7} style={{backgroundColor:"#011528"}}>
           <List
-            header={<div>Latest News</div>}
+            header={<div style={{color:"#FFFF"}}>Latest News</div>}
             itemLayout="vertical"
             dataSource={data}
             renderItem={(item) => (

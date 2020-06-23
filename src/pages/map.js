@@ -6,7 +6,6 @@ import GoogleMapReact from 'google-map-react';
 import Iframe from 'react-iframe';
 import {  Row, Col, Card} from "antd";
 import axios from "axios";
-import "../style/help.css";
 
 function Map() {
     const [latest,setLatest] = useState([]);
@@ -31,31 +30,34 @@ function Map() {
     const date= new Date(parseInt(latest.updated));
     const lastUpdated = date.toString();
 
-    const countries = results.map((data,i)=> {
-        return(
-            <div>
+    // const countries = results.map((data,i)=> {
+    //     return(
+    //         <div>
 
-            </div>
-        );
-    });
+    //         </div>
+    //     );
+    // });
 
 
   
     return (
-    <div className="container">
+    <div className="container" 
+                style={{align:"center", 
+                alignSelf:"center", alignContent:"center",
+                alignItems:"center", width:"100%"}}>
       <Row className="comm-main" type="flex" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}>
+        {/* <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}> */}
         
         
 
         
-          <div className="map-box">
-            <h1>COVID-19 Map Tracker</h1>
+          {/* <div className="map-box"> */}
+            {/* <h1>COVID-19 Map Tracker</h1>
             <p>
               This map shows the total number of cases of COVID-19 in the world.
-            </p>
+            </p> */}
 
-            <div className="site-card-wrapper">
+            {/* <div className="site-card-wrapper">
     <Row gutter={16}>
       <Col span={8}>
         <Card bg = "secondary" title="Cases" bordered={false}>
@@ -73,19 +75,19 @@ function Map() {
         </Card>
       </Col>
     </Row>
-  </div>
+  </div> */}
 
             <Iframe style="width:100%" width="1150" height="700" src="https://coronavirus.app/map?embed=true" 
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </Iframe>
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe>
             <Iframe style="width:100%" width="1150" height="700" src="https://coronavirus.app/analytics?embed=true" 
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </Iframe>
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe>
             
-          </div>
-        </Col>
-        <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
+          {/* </div> */}
+        {/* </Col> */}
+        {/* <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
           <User />
-        </Col>
-      </Row>
+        </Col> */}
+    </Row> 
     </div>
   );
 }

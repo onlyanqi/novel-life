@@ -116,9 +116,9 @@ function Data() {
   </div>
           </div>
         </Col>
-        <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
+        {/* <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
           <User />
-        </Col>
+        </Col> */}
       </Row>
       
     </div>

@@ -37,7 +37,7 @@ const { Header, Content, Footer } = Layout;
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
+      <Layout style={{width: "100%"}} >
         <Header
           style={{
             position: "fixed",
@@ -48,8 +48,8 @@ function App() {
         >
           <Row type="flex" justify="space-between">
             <Col xs={20} sm={20} md={18} lg={16} xl={14}>
-              <span className="header-logo"> NOVAL LIFE </span>
-              <span className="header-txt"> We All Together. </span>
+              <span className="header-logo" style={{color:"#FFFF"}}> NOVAL LIFE </span>
+              <span className="header-txt" style={{color:"#FFFF"}}> We All Together. </span>
             </Col>
             <Col xs={4} sm={4} md={4} lg={4} xl={4}>
               <Button type="primary" shape="circle">
@@ -92,10 +92,6 @@ function App() {
               <CloudOutlined />
               resources
             </Menu.Item>
-            <Menu.Item key="7">
-              <TeamOutlined />
-              job market
-            </Menu.Item>
             <Menu.Item key="8">
               <HeartOutlined />
               virtual care
@@ -116,11 +112,11 @@ function App() {
         </Header>
         <Content
           className="site-layout"
-          style={{ padding: "0 50px", marginTop: 64 }}
+          style={{ padding: "0 50px", marginTop: 64, backgroundColor:"#011528", align:"center", width:"100%"  }}
         >
           <div
-            className="site-layout-background"
-            style={{ padding: 24, minHeight: 380 }}
+            className="site-layout-background" width="100%"
+            style={{ padding: 24, minHeight: 380, width:"100%"}}
           >
             <Route path="/" exact component={Home} />
             <Route path="/login/" exact component={Login} />
@@ -136,11 +132,11 @@ function App() {
         <Route path = "/NegativeCheck" exact component = {NegativeCheck}></Route>
         
 
-            <Route path="/map/" exact component={Map} />
+            <Route path="/map/" exact component={Map}/>
             <Route path="/data/" exact component={Data} />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
+        <Footer style={{ textAlign: "center", backgroundColor:"#011528", color:"#FFFF"}}>
           Noval Life ©2020 Created by Group 25
         </Footer>
       </Layout>

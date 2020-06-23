@@ -46,7 +46,7 @@ function News() {
   return (
     <div className="container">
       <Row className="comm-main" type="flex" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}>
+        {/* <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}> */}
           <div>
             <img
               src="https://www.ctvnews.ca/polopoly_fs/1.4977926.1591803966!/httpImage/image.jpg_gen/derivatives/landscape_960/image.jpg"
@@ -68,7 +68,7 @@ function News() {
         sourceType="profile"
         screenName="JustinTrudeau"
         theme = "dark"
-        options={{height: 500, width: 500}}/></td>
+        options={{height: 500, width: "100%"}}/></td>
 
         <td>
           <TwitterTimelineEmbed
@@ -103,10 +103,8 @@ function News() {
               </List.Item>
             )}
           />
-        </Col>
-        <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
-          <User />
-        </Col>
+        {/* </Col> */}
+        
       </Row>
     </div>
   );

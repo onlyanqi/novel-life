@@ -32,10 +32,10 @@ function Help() {
   return (
     <div className="container">
       <Row className="comm-main" type="flex" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}>
+        {/* <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16}> */}
           <div className="map-box">
-            <h1>COVID-19 help near you</h1>
-            <p>
+            <h1 style={{color:"#FFFF"}}>COVID-19 help near you</h1>
+            <p style={{color:"#FFFF"}}>
               This map shows some verified places and organisations where you
               can reach out for help, including financial, food and shelters,
               mental health and surports for children, seniors and people with
@@ -67,10 +67,10 @@ function Help() {
               )}
             />
           </div>
-        </Col>
-        <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
+        {/* </Col> */}
+        {/* <Col className="comm-right" xs={0} sm={0} md={4} lg={6} xl={7}>
           <User />
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );
