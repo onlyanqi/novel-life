@@ -83,7 +83,7 @@ function Data() {
                           border:"none",
                           backgroundColor:"#f0ad4e"
                         }}>
-                      <h1>{latest.cases}</h1>
+                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40, align:"center"}}>{latest.cases}</h1>
                       <br></br>
                       <small style={{
                           textAlign:"center", 
@@ -101,7 +101,7 @@ function Data() {
                           color:"#011528",
                           backgroundColor:"#d9534f"
                         }}>
-                      <h1>{latest.deaths}</h1>
+                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40}}>{latest.deaths}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
@@ -114,7 +114,7 @@ function Data() {
                         color:"#011528",
                         backgroundColor:"#5cb85c"
                       }}>
-                      <h1> {latest.recovered}</h1>
+                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40}}> {latest.recovered}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
@@ -128,13 +128,13 @@ function Data() {
                         color:"#011528",
                         backgroundColor:"#5bc0de"
                       }}>
-                      <h1>{latest.active}</h1>
+                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40}}>{latest.active}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
                     </Col>
                     
-                    <h2 style={{color:"#FFFF", margin:"15px"}}> Country wise Data</h2> 
+                    <h2 style={{color:"#FFFF", margin:"15px", fontVariant:"small-caps"}}> Country wise Data</h2> 
                     <Divider></Divider>
                     
                   </Row>

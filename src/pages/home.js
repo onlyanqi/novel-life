@@ -48,7 +48,9 @@ function Home() {
   ];
 
   return (
-    <div className="container" style={{backgroundColor:"#011528"}}>
+    <div className="container" style={{backgroundColor:"#011528", width:"100%", marginTop:"20px"}}>
+      <Row width="100%" marginTop="10px"><img src="/cover.png" style={{backgroundColor:"#FFFF", opacity:"0.8", width:"100%", height:"550px", objectFit:"cover", marginTop:"50px"}}></img></Row>
+
       <Row className="comm-main" type="flex" justify="center" style={{backgroundColor:"#011528"}}>
         <Col className="comm-left" xs={24} sm={24} md={20} lg={18} xl={16} style={{backgroundColor:"#011528"}}>
           <List

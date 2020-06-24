@@ -11,11 +11,11 @@ const Fund = (props) => {
         <Row>
         <div className="checkwrapper" style={{justifyContent:"center"}}>
                         <div className ="img" style={{justifyContent:"center"}}>
-                            <p style ={{fontSize : "20px", color:"#FFFF"}}><b>Questionnaire</b></p>
+                            <p style ={{fontSize : "20px", color:"#FFFF", fontVariant:"small-caps"}}><b>Questionnaire</b></p>
                         </div>
 
                         <div class ="checktent" style={{justifyContent:"center"}}>
-                        <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center", color:"#FFFF"}}>Q) Are you a Canadian Citizen or a Permanent Resident?</label>
+                        <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center", color:"#FFFF", fontVariant:"small-caps"}}>Q) Are you a Canadian Citizen or a Permanent Resident?</label>
                             <p>
                             <Link to = "/positivecheck"><button type="button"  onClick = {<positivecheck/>} style ={{fontSize:"20px", margin:"10px", marginTop:"10px", color:"#011528"}}>Yes</button></Link>
                             </p>

@@ -38,26 +38,17 @@ const { Option } = Select;
 const Signup = () => {
   const [form] = Form.useForm();
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle style={{justifyContent:"center"}}>
-      <Select style={{backgroundColor:"#011528", 
-                                 color:"#2593FC", 
-                                fontFamily:"Roboto Thick, sans-serif", 
-                                fontWeight:"200", borderColor:"#FFFF",
-                                 height:"100%",
-                                width:70}}
-        
-      >
-        <Option value="1" >+1</Option>
-        <Option value="86">+86</Option>
-      </Select>
-    </Form.Item>
-  );
-
   return (
-    <div justifyContent="center" align="center">
+    <div justifyContent="center" align="center" >
 
- 
+<Row style={{justifyContent:"center"}}>
+     <h1 style={{color:"#FFFF",  
+            fontFamily:"Roboto, sans-serif", 
+            align:"center", justifyContent:"center", 
+            fontSize:"80px", marginTop:"100px", marginBottom:"0px"}}>Sign Up</h1>
+     </Row>
+    
+    <Row style={{justifyContent:"center", align:"center"}}>
     <Form
       style={{width:"350px"}}
       justifyContent="center"
@@ -240,6 +231,7 @@ const Signup = () => {
         </Button>
       </Form.Item>
     </Form>
+    </Row>
     </div>
   );
 };

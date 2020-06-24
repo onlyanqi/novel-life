@@ -7,11 +7,11 @@ const nextquestion = () => {
 return(
     <div className="wrap">
     <div className ="img1">
-        <p style ={{fontSize : "20px",textAlign:"center", color:"#FFFF"}}><b>Questionnaire</b></p>
+        <p style ={{fontSize : "20px",textAlign:"center", color:"#FFFF", fontVariant:"small-caps"}}><b>Questionnaire</b></p>
     </div>
 
     <div className = "tent1"> 
-      <label for="yes_no_radio" style ={{fontSize:"30px", color:"#FFFF"}}>Q) Have You travelled abroad in last month?</label>
+      <label for="yes_no_radio" style ={{fontSize:"30px", color:"#FFFF", fontVariant:"small-caps"}}>Q) Have You travelled abroad in last month?</label>
       <p>
                             <Link to = "/positiveoutcome"><button type="button"  onClick = {<Covidpositive/>} style ={{fontSize:"20px", margin:"10px", marginTop:"10px", color:"#011528"}}>Yes</button></Link>
                             </p>

@@ -11,11 +11,11 @@ const Symptom = (props) => {
         <Row>
             <div className="wrapper" style={{justifyContent:"center"}}>
                         <div className ="img" style={{justifyContent:"center"}}>
-                            <p style ={{fontSize : "20px", color:"#FFFF"}}><b>Questionnaire</b></p>
+                            <p style ={{fontSize : "20px", color:"#FFFF", fontVariant:"small-caps"}}><b>Questionnaire</b></p>
                         </div>
 
                         <div class ="tent" style={{justifyContent:"center"}}>
-                        <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center", color:"#FFFF"}}>Q) Are You experiencing fever and cough?</label>
+                        <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center", color:"#FFFF" , fontVariant:"small-caps"}}>Q) Are You experiencing fever and cough?</label>
                             <p>
                             <Link to = "/nextquestion"><button type="button"  onClick = {<Nextquestion/>} style ={{fontSize:"20px", margin:"10px", marginTop:"10px", color:"#011528"}}>Yes</button></Link>
                             </p>

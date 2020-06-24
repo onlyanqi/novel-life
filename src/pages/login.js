@@ -17,7 +17,16 @@ const schema = yup.object({
   
   function FormExample() {
     return (
-      <Row style={{justifyContent:"center", marginTop:"200px"}}>
+      <div style={{justifyContent:"center"}}>
+
+     <Row style={{justifyContent:"center"}}>
+     <h1 style={{color:"#FFFF", marginTop:"200px", 
+            fontFamily:"Roboto, sans-serif", 
+            align:"center", justifyContent:"center", 
+            fontSize:"80px"}}>Log In</h1>
+     </Row>
+      
+      <Row style={{justifyContent:"center"}}>
   
       <Formik
         validationSchema={schema}
@@ -102,6 +111,7 @@ const schema = yup.object({
         )}
       </Formik>
       </Row>
+      </div>
     );
   }
 

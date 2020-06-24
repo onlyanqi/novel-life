@@ -49,8 +49,8 @@ function App() {
         >
           <Row type="flex" justify="space-between">
             <Col xs={20} sm={20} md={18} lg={16} xl={14}>
-              <span className="header-logo" style={{color:"#FFFF", fontVariant:""}}> NOVAL LIFE </span>
-              <span className="header-txt" style={{color:"#FFFF"}}> We Are All In This Together. </span>
+              <span className="header-logo" style={{color:"#FFFF", fontVariant:"small-caps", fontFamily:"Lato, sans-serif", fontSize:"3em"}}> NOVEL LIFE </span>
+         
             </Col>
             <Col xs={4} sm={4} md={4} lg={4} xl={4}>
               <Button type="primary" shape="circle">
@@ -130,7 +130,7 @@ function App() {
           </div>
         </Content>
         <Footer style={{ textAlign: "center", backgroundColor:"#011528", color:"#FFFF"}}>
-          Noval Life ©2020 Created by Group 25
+          Novel Life ©2020 Created by Group 25
         </Footer>
       </Layout>
     </BrowserRouter>
