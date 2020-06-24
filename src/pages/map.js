@@ -77,11 +77,19 @@ function Map() {
     </Row>
   </div> */}
 
-            <Iframe style={{backgroundColor:"#011528"}} frameColor="#011528"
+            <div style={{width:"100%", margin:"20px"}}>
+            <Iframe style={{backgroundColor:"#011528", margin:"50px"}} frameColor="#011528"
             width="100%" height="700" src="https://coronavirus.app/map?embed=true" 
             frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe>
-            {/* <Iframe width="100%" height="700" src="https://coronavirus.app/analytics?embed=true" 
-            frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe> */}
+            </div>
+            
+           <div style={{width:"100%", margin:"20px"}}>
+           <Iframe style={{backgroundColor:"#011528", margin:"50px"}} width="100%" height="700" src="https://coronavirus.app/analytics?embed=true" 
+            frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" > </Iframe>
+           </div>
+            
+            
+            
             
           {/* </div> */}
         {/* </Col> */}

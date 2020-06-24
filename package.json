@@ -28,7 +28,8 @@
     "yup": "^0.29.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
     
   },
   "eslintConfig": {

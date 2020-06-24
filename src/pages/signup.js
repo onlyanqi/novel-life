@@ -4,57 +4,66 @@ import { Form, Input, Tooltip, Select, Row, Col, Checkbox, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
-const formItemLayout = {
-  labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 8,
-    },
-  },
-  wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 16,
-    },
-  },
-};
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 8,
-    },
-  },
-};
+// const formItemLayout = {
+//   labelCol: {
+//     xs: {
+//       span: 24,
+//     },
+//     sm: {
+//       span: 8,
+//     },
+//   },
+//   wrapperCol: {
+//     xs: {
+//       span: 24,
+//     },
+//     sm: {
+//       span: 16,
+//     },
+//   },
+// };
+// const tailFormItemLayout = {
+//   wrapperCol: {
+//     xs: {
+//       span: 24,
+//       offset: 0,
+//     },
+//     sm: {
+//       span: 16,
+//       offset: 8,
+//     },
+//   },
+// };
 
 const Signup = () => {
   const [form] = Form.useForm();
 
   const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select
-        style={{
-          width: 70,
-        }}
+    <Form.Item name="prefix" noStyle style={{justifyContent:"center"}}>
+      <Select style={{backgroundColor:"#011528", 
+                                 color:"#2593FC", 
+                                fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"200", borderColor:"#FFFF",
+                                 height:"100%",
+                                width:70}}
+        
       >
-        <Option value="1">+1</Option>
+        <Option value="1" >+1</Option>
         <Option value="86">+86</Option>
       </Select>
     </Form.Item>
   );
 
   return (
+    <div justifyContent="center" align="center">
+
+ 
     <Form
+      style={{width:"350px"}}
+      justifyContent="center"
+      align="center"
       className="signup-box"
-      {...formItemLayout}
+      // {...formItemLayout}
       form={form}
       name="register"
       initialValues={{
@@ -64,7 +73,7 @@ const Signup = () => {
     >
       <Form.Item
         name="email"
-        label="E-mail"
+       
         rules={[
           {
             type: "email",
@@ -76,12 +85,16 @@ const Signup = () => {
           },
         ]}
       >
-        <Input />
+        <Input placeholder="Email" style={{backgroundColor:"#011528", 
+                                             color:"#2593FC", 
+                                            fontFamily:"Roboto Thick, sans-serif", 
+                                            fontWeight:"200", padding:"10px", boxShadow:"none",
+                                             width:"100%", marginBottom:"10px", borderColor:"#2593FC"}}/>
       </Form.Item>
 
       <Form.Item
         name="password"
-        label="Password"
+        
         rules={[
           {
             required: true,
@@ -90,12 +103,17 @@ const Signup = () => {
         ]}
         hasFeedback
       >
-        <Input.Password />
+        <Input type="password" placeholder="Password" style={{backgroundColor:"#011528", 
+                                 color:"#2593FC", boxShadow:"none",
+                                fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"200", padding:"10px",borderColor:"#2593FC", 
+                                boxShadow:"none",
+                                width:"100%"}}/>
       </Form.Item>
 
       <Form.Item
         name="confirm"
-        label="Confirm Password"
+        
         dependencies={["password"]}
         hasFeedback
         rules={[
@@ -116,19 +134,16 @@ const Signup = () => {
           }),
         ]}
       >
-        <Input.Password />
+        <Input type="password" placeholder="Confirm Password" style={{backgroundColor:"#011528", 
+                                 color:"#2593FC", boxShadow:"none",
+                                fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"200", padding:"10px",borderColor:"#2593FC", 
+                                boxShadow:"none",
+                                width:"100%"}}/>
       </Form.Item>
 
       <Form.Item
         name="nickname"
-        label={
-          <span>
-            Nickname&nbsp;
-            <Tooltip title="What do you want others to call you?">
-              <QuestionCircleOutlined />
-            </Tooltip>
-          </span>
-        }
         rules={[
           {
             required: true,
@@ -136,13 +151,20 @@ const Signup = () => {
             whitespace: true,
           },
         ]}
+        
       >
-        <Input />
+        <Input placeholder="Nickname" style={{backgroundColor:"#011528", 
+                                 color:"#2593FC", boxShadow:"none",
+                                fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"200", padding:"10px",borderColor:"#2593FC", 
+                                boxShadow:"none",
+                                width:"100%"}}/>
       </Form.Item>
 
-      <Form.Item
+      <Form.Item 
+      style={{backgroundColor:"#011528"}}
         name="phone"
-        label="Phone Number"
+        
         rules={[
           {
             required: true,
@@ -150,18 +172,19 @@ const Signup = () => {
           },
         ]}
       >
-        <Input
-          addonBefore={prefixSelector}
-          style={{
-            width: "100%",
-          }}
+        <Input backgroundColor=""
+        
+          style={{backgroundColor:"#011528", 
+                                 color:"#2593FC", boxShadow:"none",
+                                fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"200",borderColor:"#2593FC", 
+                                boxShadow:"none", height:"45px", 
+                                width:"100%"}}
+          placeholder="Contact No."
         />
       </Form.Item>
 
-      <Form.Item
-        label="Captcha"
-        extra="We must make sure that your are a human."
-      >
+      <Form.Item>
         <Row gutter={8}>
           <Col span={12}>
             <Form.Item
@@ -174,16 +197,24 @@ const Signup = () => {
                 },
               ]}
             >
-              <Input />
+              <Input placeholder="Enter code" style={{backgroundColor:"#011528", 
+                                 color:"#2593FC", boxShadow:"none",
+                                fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"200",borderColor:"#2593FC", 
+                                boxShadow:"none", height:"50px",
+                                width:"100%"}}/>
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Button>Get captcha</Button>
+            <Button  style={{fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"200", width:"100%", height:"50px",
+                                 boxShadow:"none",
+                                 backgroundColor:"#2593FC", color:"#FFFF", borderColor:"#2593FC"}}>Get captcha</Button>
           </Col>
         </Row>
       </Form.Item>
 
-      <Form.Item
+      <Form.Item 
         name="agreement"
         valuePropName="checked"
         rules={[
@@ -194,18 +225,22 @@ const Signup = () => {
                 : Promise.reject("Should accept agreement"),
           },
         ]}
-        {...tailFormItemLayout}
+        // {...tailFormItemLayout}
       >
-        <Checkbox>
-          I have read the <a href="/">agreement</a>
+        <Checkbox >
+         <a href="/"> I have read the agreement</a>
         </Checkbox>
       </Form.Item>
-      <Form.Item {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit">
+      <Form.Item  justifyContent="center">
+        <Button type="primary" htmlType="submit" style={{fontFamily:"Roboto Thick, sans-serif", 
+                                fontWeight:"500", padding:"14px", width:"100%", height:"50px",
+                                marginTop:"10px", boxShadow:"none",
+                                 backgroundColor:"#2593FC", color:"#FFFF", borderColor:"#2593FC"}}>
           Register
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 export default Signup;

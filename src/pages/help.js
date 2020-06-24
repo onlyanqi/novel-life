@@ -60,9 +60,7 @@ function Help() {
             <List
               header={
                 <div>
-                  How we’re supporting individuals, families, seniors and
-                  businesses who are facing hardship because of the COVID-19
-                  pandemic.
+                  
                 </div>
               }
               itemLayout="vertical"
