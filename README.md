@@ -7,7 +7,7 @@
 - [Built With](#built-with)
 
 ## Live display
-[Noval Life App deployed to Heroku](https://react-noval-life.herokuapp.com/)
+[Noval Life App deployed to Heroku](https://novallife.herokuapp.com/)
 
 ## Introduction
 
@@ -31,7 +31,7 @@ See the following section for detailed step-by-step instructions on how to insta
 
 ### local-development
 
-* Clone the repo: git clone https://github.com/onlyanqi/react-noval-life.git
+* Clone the repo: git clone https://github.com/onlyanqi/Group25_Noval_Life.git
 * Navigate to the folder by 'cd react-novel-life'
 * Install the npm modules by: 'npm install'
 * Run 'npm start' to start the web application and open this address on your browser: http://localhost:3000.
@@ -40,8 +40,8 @@ See the following section for detailed step-by-step instructions on how to insta
 ## Deployment
 
 This assignment is available on GitHub and Heroku:
-GIT Repository Link: https://github.com/onlyanqi/react-noval-life.git
-Heroku Deployment Link: https://react-noval-life.herokuapp.com/
+GIT Repository Link: https://github.com/onlyanqi/Group25_Noval_Life.git
+Heroku Deployment Link: https://novallife.herokuapp.com/
 
 ## Built With
 
