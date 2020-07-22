@@ -1,6 +1,5 @@
 import React, {useEffect, useState }from "react";
-import User from "./user";
-import GoogleMapReact from 'google-map-react';
+
 
 
 import Iframe from 'react-iframe';
