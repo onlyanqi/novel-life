@@ -13,10 +13,13 @@
     "antd": "^4.3.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "formik": "^2.1.4",
     "google-map-react": "^1.1.7",
     "http-server": "^0.12.3",
     "mapbox-gl": "^1.11.0",
+    "mongoose": "^5.9.25",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
@@ -28,7 +31,8 @@
     "yup": "^0.29.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build" : "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
