@@ -1,5 +1,4 @@
 import React from "react";
-import User from "./user";
 import { TwitterTimelineEmbed, TwitterHashtagButton } from 'react-twitter-embed';
 import { List, Row, Col } from "antd";
 import { CalendarOutlined, BookOutlined } from "@ant-design/icons";

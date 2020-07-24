@@ -2,21 +2,22 @@
   "name": "react-noval-life",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "6.14.5",
-    "node": "14.3.0"
-  },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.3.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.1",
     "formik": "^2.1.4",
     "google-map-react": "^1.1.7",
     "http-server": "^0.12.3",
+    "js-cookie": "^2.2.1",
     "mapbox-gl": "^1.11.0",
+    "material-ui": "^0.20.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
@@ -28,7 +29,10 @@
     "yup": "^0.29.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

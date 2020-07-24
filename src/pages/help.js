@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import User from "./user";
 import ReactMapGL from "react-map-gl";
-import { List, Row, Col } from "antd";
+import { List, Row } from "antd";
 import "../style/help.css";
 
 function Help() {

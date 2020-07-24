@@ -1,7 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import PositiveCheck from './positivecheck';
-import NegativeCheck from './negativecheck';
+import {Link} from 'react-router-dom';
 import  '../Funds/checkfund.css'
 import { Row } from 'antd';
 
