@@ -2,9 +2,14 @@
 const express= require('express');
 const path= require('path');
 
+const http = require('http');
+const bodyParser = require('body-parser');
+
 const app = express();
 const cors=require('cors');
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //serve only static file from build directory
@@ -19,8 +24,11 @@ mongoose.connect(mongoURL,{
 })
 app.use(express.json());
 
-const userRoute = require('./src/backend/Route/helpRoute');
-app.use('/api/assist',userRoute)
+const helpRoute = require('./src/backend/Route/helpRoute');
+app.use('/api/assist',helpRoute)
+
+const userRoute = require('./src/backend/Route/userRoute');
+app.use('/user', userRoute);
 
 //start the app by listening on default port
 app.listen(process.env.PORT || 8080);
