@@ -42,7 +42,7 @@ function getAll(req, res, next) {
 }
 
 function getCurrent(req, res, next) {
-    userService.getById(req.body)
+    userService.getById(req.body.email)
         .then(user => user ? res.json(user) : res.sendStatus(404))
         .catch(err => next(err));
     

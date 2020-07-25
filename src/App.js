@@ -52,25 +52,27 @@ export default class App extends Component {
 
   checkLoginStatus() {
     console.log(Cookies.get("User"));
-    Axios.post("http://localhost:8080/user/current", {
-      email: Cookies.get("User"),
-    })
-      .then((response) => {
-        if (response.statusText !== "OK") {
-          this.setState({
-            loggedInStatus: false,
-          });
-          Cookies.remove();
-        } else {
-          this.setState({
-            loggedInStatus: true,
-          });
-        }
-        console.log(response);
+    if (Cookies.get("User")) {
+      Axios.post("http://localhost:8080/user/current", {
+        email: Cookies.get("User"),
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          if (response.statusText !== "OK") {
+            this.setState({
+              loggedInStatus: false,
+            });
+            Cookies.remove();
+          } else {
+            this.setState({
+              loggedInStatus: true,
+            });
+          }
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   componentDidMount() {

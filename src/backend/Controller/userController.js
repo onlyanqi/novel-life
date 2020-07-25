@@ -47,11 +47,13 @@ async function getAll() {
 
 async function getById(id) {
   console.log(id);
-  const sessionCheck = await Session.findOne({ email: id.email });
+  const sessionCheck = await Session.find({ email: id });
   if (!sessionCheck) {
     throw "User not logged in";
   } else {
-    return await User.find({ email: id.email }).select("-hash");
+    const user = await User.find({ email: id }).select("-hash");
+    
+    return user ;
   }
 }
 

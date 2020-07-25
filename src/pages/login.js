@@ -31,7 +31,7 @@ class LoginPage extends React.Component {
   handleSuccessfulLogin(data){
     console.log(data)
     this.props.handleLogin(data);
-    this.props.history.push("/profile");
+    this.props.history.push("/");
   }
 
   handleChange = (event) => {
