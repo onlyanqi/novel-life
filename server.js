@@ -30,5 +30,8 @@ app.use('/api/assist',helpRoute)
 const userRoute = require('./src/backend/Route/userRoute');
 app.use('/user', userRoute);
 
+const eduRoute = require('./src/backend/Route/eduRoute');
+app.use('/api/edu', eduRoute);
+
 //start the app by listening on default port
 app.listen(process.env.PORT || 8080);
