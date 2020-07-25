@@ -14,7 +14,7 @@
     "axios": "^0.19.2",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
-    "js-cookie":"^2.2.1",
+    "js-cookie": "^2.2.1",
     "bootstrap": "^4.5.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
