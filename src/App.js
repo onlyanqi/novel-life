@@ -18,7 +18,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import Profile from "./pages/UserManagement";
 import RegistrationPage from "./pages/signup";
 import ForgotPassword from "./pages/forgotPassword";
-
+import Travel from "./pages/travel";
 import Map from "./pages/map";
 import Data from "./pages/data";
 import "./style/comm.css";
@@ -30,10 +30,8 @@ import {
   PieChartOutlined,
   EnvironmentOutlined,
   SmileOutlined,
-  HeartOutlined,
   CloudOutlined,
-  TeamOutlined,
-  CoffeeOutlined,
+  CarOutlined,
   CheckCircleOutlined,
   MoneyCollectOutlined,
 } from "@ant-design/icons";
@@ -52,25 +50,27 @@ export default class App extends Component {
 
   checkLoginStatus() {
     console.log(Cookies.get("User"));
-    Axios.post("http://localhost:8080/user/current", {
-      email: Cookies.get("User"),
-    })
-      .then((response) => {
-        if (response.statusText !== "OK") {
-          this.setState({
-            loggedInStatus: false,
-          });
-          Cookies.remove();
-        } else {
-          this.setState({
-            loggedInStatus: true,
-          });
-        }
-        console.log(response);
+    if (Cookies.get("User")) {
+      Axios.post("http://localhost:8080/user/current", {
+        email: Cookies.get("User"),
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          if (response.statusText !== "OK") {
+            this.setState({
+              loggedInStatus: false,
+            });
+            Cookies.remove();
+          } else {
+            this.setState({
+              loggedInStatus: true,
+            });
+          }
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   componentDidMount() {
@@ -164,6 +164,10 @@ export default class App extends Component {
                 <MoneyCollectOutlined />
                 <Link to="/fundchecker">funding</Link>
               </Menu.Item>
+              <Menu.Item key="12">
+                <CarOutlined />
+                <Link to="/travel">Travel</Link>
+              </Menu.Item>
             </Menu>
           </Header>
           <Content
@@ -242,6 +246,7 @@ export default class App extends Component {
 
               <Route path="/map/" exact component={Map} />
               <Route path="/data/" exact component={Data} />
+              <Route path="/travel/" exact component={Travel} />
               <Route
                 path="/forgotpassword"
                 exact
