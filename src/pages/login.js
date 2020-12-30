@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import { Row , Col} from "antd";
+import { Row , Col, message} from "antd";
 import { Form } from "react-bootstrap";
 import "antd/dist/antd.css";
 
@@ -29,7 +29,6 @@ class LoginPage extends React.Component {
   }
 
   handleSuccessfulLogin(data){
-    console.log(data)
     this.props.handleLogin(data);
     this.props.history.push("/");
   }
@@ -66,22 +65,25 @@ class LoginPage extends React.Component {
       errors.formPassword = "Please fill out Password!";
     }
     if (validateForm(errors)) {
-      Axios.post("https://novallife.herokuapp.com//user/authenticate", {
+      Axios.post("https://group25novellife.herokuapp.com/api/user/authenticate", {
         email: formEmail,
         password: formPassword,
       })
         .then((response) => {
           if (response.statusText === "OK") {
             this.handleSuccessfulLogin(response.data);
-            console.log(response);
           }
           // setUserSession(response.data.id, response.data.email)
         })
         .catch((error) => {
-          console.log(error);
+          setTimeout(()=>{
+            message.error({content:"Invalid Email or Password!!", duration: 2},1000);
+          })
         });
     } else {
-      alert("Invalid Email or Password");
+      setTimeout(()=>{
+        message.error({content:"Invalid Email or Password!!", duration: 2},1000);
+      })
     }
     this.setState({ errors, errors });
   };
@@ -127,7 +129,8 @@ class LoginPage extends React.Component {
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
                     padding: "10px",
-                    boxShadow: "none",
+                    boxShadow:"0", 
+                    borderBlockColor:"#2593FC", 
                     marginBottom: "10px",
                     width: "100%",
                     borderColor: "#2593FC",
@@ -138,7 +141,7 @@ class LoginPage extends React.Component {
                     style={{
                       fontFamily: "Roboto Thick, sans-serif",
                       fontWeight: "200",
-                      color: "#2593FC",
+                      color: "#FF5F5F",
                     }}
                   >
                     {errors.formEmail}
@@ -160,7 +163,7 @@ class LoginPage extends React.Component {
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
                     padding: "10px",
-                    boxShadow: "none",
+                    boxShadow: "0",
                     width: "100%",
                     marginBottom: "10px",
                     borderColor: "#2593FC",
@@ -171,7 +174,7 @@ class LoginPage extends React.Component {
                     style={{
                       fontFamily: "Roboto Thick, sans-serif",
                       fontWeight: "200",
-                      color: "#2593FC",
+                      color: "#FF5F5F",
                     }}
                   >
                     {errors.formPassword}

@@ -1,58 +1,103 @@
 import React, { Component } from "react";
-import { Layout, Menu, Row, Col, List } from "antd";
+import { Layout, Menu, Row, Col, Modal, message } from "antd";
+
 import Axios from "axios";
 import Cookies from "js-cookie";
-import { Avatar } from "antd";
 import {
   DisconnectOutlined,
   PieChartOutlined,
-  UserOutlined,
   UserDeleteOutlined,
   FormOutlined,
 } from "@ant-design/icons";
-import { Tag } from "antd";
+import ProfilePage from "./ProfilePage";
+import ChangePassword from "./changePassword";
 const { Sider } = Layout;
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
+    visible: false,
     collapsed: false,
-    name: "",
-    email: "",
-    contactNo: "",
-    key:"",
+    profile: true,
+    password: false,
   };
 
-  onChange(e){
-    const key = e.value;
-    console.log(key);
+  onChange(e, index) {
+    if (index === 1) {
+      this.setState({
+        profile: true,
+        password: false,
+      });
+    } else if (index === 2) {
+      this.setState({
+        profile: false,
+        password: true,
+      });
+    } else {
+      this.logout();
+    } 
   }
-  getDetails() {
-    Axios.post("http://localhost:8080/user/current", {
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+   logout(){
+    this.setState({
+      visible: false,
+    });
+    Axios.post("https://group25novellife.herokuapp.com/api/user/logout", {
       email: Cookies.get("User"),
     })
       .then((response) => {
-        console.log("In Profile" + response.data[0].email);
         if (response.statusText === "OK") {
-          this.setState({
-            name: response.data[0].name,
-            email: response.data[0].email,
-            contactNo: response.data[0].contactNo,
+          Cookies.set("User", "");
+          this.props.history.push("/");
+          setTimeout(() => {
+            message.success(
+              { content: "Logged out Successfully", duration: 2 },
+              1000
+            );
           });
         }
       })
       .catch((error) => {
-        console.log(error);
       });
   }
-
-  componentDidMount() {
-    this.getDetails();
+  handleOk=(e)=> {
+    Axios.delete("https://group25novellife.herokuapp.com/api/user/" + Cookies.get("User"))
+      .then((response) => {
+        if (response.statusText === "OK") {
+          Cookies.set("User", "");
+          this.props.history.push("/");
+          setTimeout(() => {
+            message.success(
+              { content: "Account Deleted Successfully", duration: 2 },
+              1000
+            );
+          });
+        }
+      })
+      .catch((error) => {
+      });
   }
+  handleCancel = (e) => {
+    this.setState({
+      visible: false,
+    });
+  };
 
   onCollapse = (collapsed) => {
-    console.log(collapsed);
     this.setState({ collapsed });
   };
   render() {
+    let selectedComponent = <ProfilePage />;
+    if (this.state.profile) {
+      selectedComponent = <ProfilePage />;
+    } else if (this.state.password) {
+      selectedComponent = <ChangePassword />;
+    }
     return (
       <Row type="flex">
         <Col flex="150px">
@@ -63,17 +108,42 @@ class Profile extends Component {
             onCollapse={this.onCollapse}
           >
             <div className="logo" />
-            <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline" onChange={this.onChange}>
-              <Menu.Item key="1" value ="1" icon={<PieChartOutlined />}>
+            <Menu
+              theme="dark"
+              defaultSelectedKeys={["1"]}
+              mode="inline"
+              onChange={this.onChange}
+            >
+              <Menu.Item
+                key="1"
+                value="1"
+                onClick={(event) => this.onChange(event, 1)}
+                icon={<PieChartOutlined />}
+              >
                 Profile
               </Menu.Item>
-              <Menu.Item key="2" value ="2" icon={<FormOutlined />}>
+              <Menu.Item
+                key="2"
+                value="2"
+                onClick={(event) => this.onChange(event, 2)}
+                icon={<FormOutlined />}
+              >
                 Change Password
               </Menu.Item>
-              <Menu.Item key="3" value ="3" icon={<DisconnectOutlined />}>
+              <Menu.Item
+                key="3"
+                value="3"
+                onClick={(event) => this.onChange(event, 3)}
+                icon={<DisconnectOutlined />}
+              >
                 Logout
               </Menu.Item>
-              <Menu.Item key="4" value ="4" icon={<UserDeleteOutlined />}>
+              <Menu.Item
+                key="4"
+                value="4"
+                onClick={this.showModal}
+                icon={<UserDeleteOutlined />}
+              >
                 Delete profile
               </Menu.Item>
             </Menu>
@@ -87,103 +157,16 @@ class Profile extends Component {
           }}
           flex="auto"
         >
-          <div style={{ textAlign: "center" }}>
-            <Avatar
-              size={140}
-              style={{ backgroundColor: "#1890FF" }}
-              icon={<UserOutlined />}
-            />
-          </div>
-          <Row
-            className="comm-main"
-            type="flex"
-            justify="center"
-            style={{ backgroundColor: "#011528" }}
-          >
-            <Col
-              className="comm-left"
-              xs={24}
-              sm={24}
-              md={20}
-              lg={18}
-              xl={16}
-              style={{ backgroundColor: "#011528" }}
-            >
-              <List
-                header={
-                  <div
-                    style={{
-                      color: "#FFFF",
-                      textAlign: "center",
-                      fontSize: "22px",
-                    }}
-                  >
-                    My Profile
-                  </div>
-                }
-                itemLayout="vertical"
-              >
-                <List.Item>
-                  <Row>
-                    <Col flex="130px" className="list-title">Name: </Col>
-                    <Col flex="auto" textAlign="left" style={{alignItems:"left"}}>
-                      <h4
-                        style={{
-                          opacity: "60%",
-                          color: "#FFF",
-                          backgroundColor: "#001529",
-                          fontSize: "18px",
-                          textAlign: "center",
-                          fontWeight: "lighter"
-                        }}
-                      >
-                        {this.state.name}
-                      </h4>
-                    </Col>
-                  </Row>
-                </List.Item>
-                <List.Item>
-                <Row>
-                    <Col flex="130px" className="list-title">Email: </Col>
-                    <Col flex="auto" >
-                      <h4
-                        style={{
-                          opacity: "60%",
-                          color: "#FFF",
-                          backgroundColor: "#001529",
-                          fontSize: "18px",
-                          textAlign: "center",
-                          fontWeight: "lighter"
-                        }}
-                      >
-                        {this.state.email}
-                      </h4>
-                    </Col>
-                  </Row>
-                </List.Item>
-                <List.Item>
-                <Row>
-                    <Col flex="130px" className="list-title">Contact No: </Col>
-                    <Col flex="auto" >
-                      <h4
-                        style={{
-                          opacity: "60%",
-                          color: "#FFF",
-                          backgroundColor: "#001529",
-                          fontSize: "18px",
-                          textAlign: "center",
-                          fontWeight: "lighter"
-                        }}
-                      >
-                        {this.state.contactNo}
-                      </h4>
-                    </Col>
-                  </Row>
-                </List.Item>
-              </List>
-            </Col>
-          </Row>
+          {selectedComponent}
         </Col>
+        <Modal
+          title="Delete Account"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Are you sure you want to delete your account</p>
+        </Modal>
       </Row>
     );
   }

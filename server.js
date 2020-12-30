@@ -28,10 +28,20 @@ const helpRoute = require('./src/backend/Route/helpRoute');
 app.use('/api/assist',helpRoute)
 
 const userRoute = require('./src/backend/Route/userRoute');
-app.use('/user', userRoute);
+app.use('/api/user', userRoute);
 
 const eduRoute = require('./src/backend/Route/eduRoute');
 app.use('/api/edu', eduRoute);
+
+const mentalRoute = require('./src/backend/Route/mentalRoute');
+app.use('/api/mental', mentalRoute);
+
+const taskRoute = require('./src/backend/Route/taskRoute');
+app.use('/api/seekassist', taskRoute);
+
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname + "/build/index.html"))
+})
 
 //start the app by listening on default port
 app.listen(process.env.PORT || 8080);

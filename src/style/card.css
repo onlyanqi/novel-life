@@ -1,0 +1,67 @@
+.row-heading{
+    color:#FFFFFF;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.card-wrapper{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.class-card{
+    width:16rem;
+    padding:0 15px 20px;
+    text-align:center;
+    border-radius: 5px;;
+    /* min-height: 100%; */
+}
+
+.class-card .card{
+    background-color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    /* height: 100%; */
+}
+
+.card-head{
+    background:#444;
+    width:100%;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+}
+
+.class-title-card{
+    background:#fff;
+    font-size:20px;
+    padding: 15px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.class-card .card .list-group-item{
+    padding: 5px 0;
+    border: 0px solid;
+    border-bottom-width: 1px;
+    border-color: #000;
+}
+
+.class-card .card .card-footer{
+    padding: 5px 0;
+}
+
+.class-card .card img{
+    padding: 0 5px;
+}

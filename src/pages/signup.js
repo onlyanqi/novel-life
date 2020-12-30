@@ -1,7 +1,6 @@
-
 import React from "react";
 import "../style/signup.css";
-import { Row } from "antd";
+import { Row, message } from "antd";
 import Axios from "axios";
 import { Form } from "react-bootstrap";
 
@@ -33,7 +32,6 @@ class RegistrationPage extends React.Component {
   }
 
   handleSuccessfulRegistration(data) {
-    console.log(data);
     this.props.handleLogin(data);
     this.props.history.push("/profile");
   }
@@ -69,7 +67,7 @@ class RegistrationPage extends React.Component {
   };
 
   handleSubmit = (event) => {
-      event.preventDefault();
+    event.preventDefault();
     if (!this.state.formName) {
       this.setState({
         open: true,
@@ -173,7 +171,7 @@ class RegistrationPage extends React.Component {
         if (this.state.phoneNumber.match(/^[0-9]{10}$/)) {
           if (this.state.formpassword.length >= 6) {
             if (this.state.confirmPassword == this.state.formpassword) {
-              Axios.post("http://localhost:8080/user/register", {
+              Axios.post("https://group25novellife.herokuapp.com/api/user/register", {
                 name: this.state.formName,
                 email: this.state.emailID,
                 password: this.state.formpassword,
@@ -182,12 +180,21 @@ class RegistrationPage extends React.Component {
                 .then((response) => {
                   if (response.statusText === "OK") {
                     this.handleSuccessfulRegistration(response.data);
-                    console.log(response.data);
+                  } else {
+                    this.setState({
+                      open: true,
+                      message: response.data.message,
+                    });
                   }
                   // setUserSession(response.data.id, response.data.email)
                 })
                 .catch((error) => {
-                  console.log(error);
+                  setTimeout(() => {
+                    message.error(
+                      { content: "Invalid Email or Password!!", duration: 2 },
+                      1000
+                    );
+                  });
                 });
             }
           }
@@ -195,7 +202,9 @@ class RegistrationPage extends React.Component {
       }
     }
     if (this.state.open === true) {
-      alert(this.state.message);
+      setTimeout(() => {
+        message.error({ content: this.state.message, duration: 2 }, 1000);
+      });
     }
   };
 
@@ -235,7 +244,7 @@ class RegistrationPage extends React.Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log());
+    this.setState({ formErrors, [name]: value });
   };
 
   render() {
@@ -260,7 +269,11 @@ class RegistrationPage extends React.Component {
         </Row>
 
         <Row style={{ justifyContent: "center" }}>
-          <form onSubmit={this.handleSubmit} style={{ width: "350px" }} noValidate>
+          <form
+            onSubmit={this.handleSubmit}
+            style={{ width: "350px" }}
+            noValidate
+          >
             <Form.Group>
               <input
                 type="text"
@@ -287,7 +300,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.formName}
@@ -320,7 +333,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.emailID}
@@ -354,7 +367,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.formpassword}
@@ -388,7 +401,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.confirmPassword}
@@ -421,7 +434,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.phoneNumber}
@@ -453,3 +466,4 @@ class RegistrationPage extends React.Component {
 }
 
 export default RegistrationPage;
+

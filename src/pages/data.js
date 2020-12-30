@@ -1,7 +1,9 @@
+// @author : Shivam Gupta
 import React, {useEffect, useState }from "react";
 import {  Row, Col, Card, Divider} from "antd";
 import axios from "axios";
 import "../style/help.css";
+import { Container } from "react-bootstrap";
 
 function Data() {
     const [latest,setLatest] = useState([]);
@@ -15,12 +17,10 @@ function Data() {
             .then((responseArr) => {
                 setLatest(responseArr[0].data);
                 setResults(responseArr[1].data);
-
             })
             .catch((err) => {
                 console.log(err);
             });
-
     },[]);
 
     const date= new Date(parseInt(latest.updated));
@@ -50,13 +50,10 @@ function Data() {
         );
     });
 
-
-  
     return (
     <div className="container">
       <Row className="comm-main" type="flex" justify="center">
-        
-        
+      
           <div className="map-box">
 
                 <Row>
@@ -68,17 +65,22 @@ function Data() {
                       </p>
                 </Row>
                   
-                  <Row gutter={16}>
-                    <Col span={6}>
+                  <Row>
+
+              <Container >
+             <Row style={{width:"100%"}}>
+                    <Col >
                       <Card bg = "secondary" title="Cases" 
                         style={{
                           textAlign:"center", 
                           align:"center",  
                           color:"#011528",
                           border:"none",
+                          width:"20em",
+                          margin:"1em",
                           backgroundColor:"#f0ad4e"
                         }}>
-                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40, align:"center"}}>{latest.cases}</h1>
+                      <h1 style={{fontSize:"3em"}}>{latest.cases}</h1>
                       <br></br>
                       <small style={{
                           textAlign:"center", 
@@ -87,53 +89,62 @@ function Data() {
                       </Card>
                     </Col>
 
-
-                    <Col span={6}>
+                    <Col>
                       <Card bg = "danger" title="Deaths" bordered={false} 
                       style={{
                           textAlign:"center", 
                           align:"center",
                           color:"#011528",
+                          width:"20em",
+                          margin:"1em",
                           backgroundColor:"#d9534f"
                         }}>
-                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40}}>{latest.deaths}</h1>
+                      <h1 style={{fontSize:"3em"}}>{latest.deaths}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
                     </Col>
-                    <Col span={6}>
+
+                    <Col >
                       <Card bg = "success" title="Recovered" bordered={false}
                       style={{
                         textAlign:"center", 
                         align:"center",
                         color:"#011528",
+                        width:"20em",
+                        margin:"1em",
                         backgroundColor:"#5cb85c"
                       }}>
-                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40}}> {latest.recovered}</h1>
+                      <h1 style={{fontSize:"3em"}}>{latest.recovered}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
                       
                     </Col>
-                    <Col span={6}>
+
+                    <Col >
                       <Card bg = "danger" title="Active" bordered={false}
                       style={{
                         textAlign:"center", 
                         align:"center",
                         color:"#011528",
+                        width:"20em",
+                        margin:"1em",
                         backgroundColor:"#5bc0de"
                       }}>
-                      <h1 style={{fontFamily:"Roboto Thick, sans-serif", fontSize:40}}>{latest.active}</h1>
+                        <h1 style={{fontSize:"3em"}}>{latest.active}</h1>
+                      
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
                     </Col>
-                    
+              </Row>
+             </Container>
+             </Row>  
+
                     <h2 style={{color:"#FFFF", margin:"15px", fontVariant:"small-caps"}}> Country wise Data</h2> 
                     <Divider></Divider>
                     
-                  </Row>
-                  
                   <Row style={{width:"100%"}}>
                   {countries}
                   </Row>

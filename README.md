@@ -15,7 +15,7 @@
 - [Built With](#built-with)
 
 ## Live display
-[Novel Life App deployed to Heroku](https://novallife.herokuapp.com/)
+[Novel Life App deployed to Heroku](https://novellife.herokuapp.com/)
 
 ## Introduction
 
@@ -28,17 +28,17 @@ This project uses ReactJS, Ant Design, and Mapbox to implement the web applicati
 
 ### local-development
 
-* Clone the repo: git clone https://github.com/onlyanqi/Group25_Noval_Life.git
+* Clone the repo: git clone https://github.com/Shivam1805/Group25_Novel_Life.git
 * Navigate to the folder
 * Install the npm modules by: 'npm install'
-* Run 'npm start' to start the web application and open this address on your browser: http://localhost:3000.
+* Run 'npm start' to start the web application and open this address on your browser: http://localhost:8080.
 
 
 ## Deployment
 
 This assignment is available on GitHub and Heroku:
-* GIT Repository Link: https://github.com/onlyanqi/Group25_Noval_Life.git
-* Heroku Deployment Link: https://novallife.herokuapp.com/
+* GIT Repository Link: https://github.com/Shivam1805/Group25_Novel_Life.git
+* Heroku Deployment Link: https://novellife.herokuapp.com/
 
 ## Built With
 

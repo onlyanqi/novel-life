@@ -48,12 +48,13 @@ async function getAll() {
 async function getById(id) {
   console.log(id);
   const sessionCheck = await Session.find({ email: id });
-  if (!sessionCheck) {
+  console.log(sessionCheck[0])
+  if (!sessionCheck[0]) {
     throw "User not logged in";
   } else {
     const user = await User.find({ email: id }).select("-hash");
-    
-    return user ;
+
+    return user;
   }
 }
 
@@ -85,7 +86,6 @@ async function create(userParam) {
 
     // save user
     return await newUser.save();
-
   }
 }
 
@@ -129,40 +129,43 @@ async function forgotPassword(id) {
     number: true,
   });
   const user = await User.findOne({ email: id });
+  if (!user) {
+    throw "Invalid Email Address";
+  } else {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+    var transporter = nodemailer.createTransport(
+      smtpTransport({
+        service: "gmail",
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: "webgroup25@gmail.com",
+          pass: "novellife123",
+        },
+      })
+    );
 
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  var transporter = nodemailer.createTransport(
-    smtpTransport({
-      service: "gmail",
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: "webgroup25@gmail.com",
-        pass: "novellife123",
-      },
-    })
-  );
+    var mailOptions = {
+      from: "webgroup25@gmail.com",
+      to: id,
+      subject: "Noval Life - Reset Password. ",
+      html:
+        "Dear Customer,<br>Your new password is: " +
+        password +
+        " .<br><br> If you haven't requested to reset your password, someone may be trying to access your account.<br><br>Please contact noval life Support<br>1315 Dresden Row<br>Halifax NS B3J 2K9<br>webgroup25@gmail.com<br>www.novallife.com/support",
+    };
 
-  var mailOptions = {
-    from: "webgroup25@gmail.com",
-    to: id,
-    subject: "Noval Life - Reset Password. ",
-    html:
-      "Dear Customer,<br>Your new password is: " +
-      password +
-      " .<br><br> If you haven't requested to reset your password, someone may be trying to access your account.<br><br>Please contact noval life Support<br>1315 Dresden Row<br>Halifax NS B3J 2K9<br>webgroup25@gmail.com<br>www.novallife.com/support",
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
-    transporter.close();
-  });
-  password = bcrypt.hashSync(password, 10);
-  user.password = password;
-  await user.save();
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent: " + info.response);
+      }
+      transporter.close();
+    });
+    password = bcrypt.hashSync(password, 10);
+    user.password = password;
+    await user.save();
+  }
 }

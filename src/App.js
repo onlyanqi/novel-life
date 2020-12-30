@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 import Home from "./pages/home";
 import News from "./pages/news";
 import Help from "./pages/help";
+import Donation from "./pages/donation";
 import SymptomChecker from "./pages/SymptomChecker";
 import Nextquestion from "./pages/SymptomChecker/Nextquestion";
 import NegativeOutcome from "./pages/SymptomChecker/NegativeOutcome";
@@ -21,7 +22,13 @@ import ForgotPassword from "./pages/forgotPassword";
 import Travel from "./pages/travel";
 import Map from "./pages/map";
 import Data from "./pages/data";
+import Assistance from "./pages/Assistance";
+import Instruction from "./pages/instruction";
 import "./style/comm.css";
+import Tasks from "./pages/Tasks";
+import { Tooltip } from 'antd';
+import ShowLogin from './pages/showlogin';
+
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {
   HomeOutlined,
@@ -30,10 +37,13 @@ import {
   PieChartOutlined,
   EnvironmentOutlined,
   SmileOutlined,
-  CloudOutlined,
   CarOutlined,
+  CloudOutlined,
   CheckCircleOutlined,
-  MoneyCollectOutlined,
+  HeartOutlined,
+  TeamOutlined,
+  DollarOutlined,
+  WalletOutlined,
 } from "@ant-design/icons";
 const { Header, Content, Footer } = Layout;
 
@@ -44,14 +54,12 @@ export default class App extends Component {
       loggedInStatus: false,
       user: {},
     };
-
     this.handleLogin = this.handleLogin.bind(this);
   }
 
   checkLoginStatus() {
-    console.log(Cookies.get("User"));
     if (Cookies.get("User")) {
-      Axios.post("http://localhost:8080/user/current", {
+      Axios.post("https://group25novellife.herokuapp.com/api/user/current", {
         email: Cookies.get("User"),
       })
         .then((response) => {
@@ -65,10 +73,8 @@ export default class App extends Component {
               loggedInStatus: true,
             });
           }
-          console.log(response);
         })
         .catch((error) => {
-          console.log(error);
         });
     }
   }
@@ -101,7 +107,7 @@ export default class App extends Component {
             }}
           >
             <Row type="flex" justify="space-between">
-              <Col xs={20} sm={20} md={18} lg={16} xl={14}>
+              <Col>
                 <span
                   className="header-logo"
                   style={{
@@ -115,58 +121,114 @@ export default class App extends Component {
                   NOVEL LIFE{" "}
                 </span>
               </Col>
-              <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                <Button type="primary" shape="circle">
+
+              <Col>
+
+              <Tooltip title="Login">
+                  <span>
+
+                  <Button type="primary" shape="circle" style={{marginRight:"10px"}} >
                   <a href="/login">
                     <UserOutlined />
                   </a>
                 </Button>
+
+                  </span>
+              </Tooltip>
+
+               
+              <Tooltip title="Volunteer">
+                  <span>
+                <Button type="primary" shape="circle" style={{marginRight:"10px"}} >
+                  <a href="/volunteer">
+                  <HeartOutlined />
+                  </a>
+                </Button>
+                </span>
+               </Tooltip>
               </Col>
+
             </Row>
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-              <Menu.Item key="1">
-                <HomeOutlined />
-                <span>
-                  <Link to="/">home</Link>
+
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]} 
+            style={{color:"#faa2a4", 
+            outlineColor:"#82c1ff", 
+            width:"100%",
+            overflow:"auto"}} >
+
+              <Menu.Item key="1" style={{color:"#b4daff"}}>
+                <HomeOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}}>
+                  <Link to="/" style={{color:"#b4daff"}}>home</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="2">
-                <ReadOutlined />
-                <span>
-                  <Link to="/news">news</Link>
+              <Menu.Item key="2" style={{color:"#b4daff"}}>
+                <ReadOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}} >
+                  <Link to="/news" style={{color:"#b4daff"}}>news</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="3">
-                <SmileOutlined />
-                <span>
-                  <Link to="/help">help</Link>
+              <Menu.Item key="3" style={{color:"#b4daff"}}>
+                <SmileOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}}>
+                  <Link to="/help" style={{color:"#b4daff"}}>help</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="4">
-                <PieChartOutlined />
-                <Link to="/data"> data</Link>
+              <Menu.Item key="4" style={{color:"#b4daff"}}>
+                <PieChartOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}} >
+                <Link to="/data" style={{color:"#b4daff"}}> data</Link>
+                </span>
+                
               </Menu.Item>
-              <Menu.Item key="5">
-                <EnvironmentOutlined />
+              <Menu.Item key="5" style={{color:"#b4daff"}}>
+                <EnvironmentOutlined style={{color:"#b4daff"}}/>
                 <span>
-                  <Link to="/map">map</Link>
+                  <Link to="/map" style={{color:"#b4daff"}}>map</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="6">
-                <CloudOutlined />
-                <Link to="/resource/">resources</Link>
+
+              <Menu.Item key="6" >
+                <CloudOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/resource/" style={{color:"#b4daff"}}>resources</Link>
+                </span>
+                
               </Menu.Item>
-              <Menu.Item key="10">
-                <CheckCircleOutlined />
-                <Link to="/SymptomChecker">symptom checker</Link>
+
+              <Menu.Item key="10" style={{color:"#b4daff"}}>
+                <CheckCircleOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/SymptomChecker" style={{color:"#b4daff"}}>symptom checker</Link>
+                </span>
               </Menu.Item>
-              <Menu.Item key="11">
-                <MoneyCollectOutlined />
-                <Link to="/fundchecker">funding</Link>
+
+              <Menu.Item key="11" style={{color:"#b4daff"}}>
+                <DollarOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/fundchecker" style={{color:"#b4daff"}}>funding</Link>
+                </span>
               </Menu.Item>
-              <Menu.Item key="12">
-                <CarOutlined />
-                <Link to="/travel">Travel</Link>
+
+              <Menu.Item key="12" style={{color:"#b4daff"}}>
+                <CarOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/travel"style={{color:"#b4daff"}} >travel</Link>
+                </span>
+              </Menu.Item>
+
+              <Menu.Item key="13" style={{color:"#b4daff"}}>
+        <WalletOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/donate" style={{color:"#b4daff"}}>donate</Link>
+                </span>
+              </Menu.Item>
+
+              <Menu.Item key="14" style={{color:"#b4daff"}}>
+                <TeamOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/assistance" style={{color:"#b4daff"}}>assistance</Link>
+                </span>
               </Menu.Item>
             </Menu>
           </Header>
@@ -183,8 +245,7 @@ export default class App extends Component {
             <div
               className="site-layout-background"
               width="100%"
-              style={{ padding: 24, minHeight: 380, width: "100%" }}
-            >
+              style={{ padding: 24, minHeight: 380, width: "100%" }}>
               <Route path="/" exact component={Home} />
               <Route
                 path="/login/"
@@ -206,6 +267,25 @@ export default class App extends Component {
                 loggedIn={this.state.loggedInStatus}
                 component={Profile}
               />
+
+            <Route 
+              path="/volunteer/"
+              exact
+              render={(props) =>
+                
+                !this.state.loggedInStatus ? (
+                  <ShowLogin 
+                  />
+                ) : (    
+                  <Tasks 
+                    {...props}
+                    handleLogin={this.handleLogin}
+                    loggedInStatus={this.state.loggedInStatus} 
+                  />
+                )
+                }
+                />
+
               <Route
                 path="/signup/"
                 exact
@@ -219,8 +299,8 @@ export default class App extends Component {
               <Route
                 path="/nextquestion"
                 exact
-                component={Nextquestion}
-              ></Route>
+                component={Nextquestion}> 
+              </Route>
               <Route
                 path="/negativeoutcome"
                 exact
@@ -243,10 +323,12 @@ export default class App extends Component {
                 component={NegativeCheck}
               ></Route>
               <Route path="/resource/" exact component={Resource} />
-
+              <Route path="/travel/" exact component={Travel} />
               <Route path="/map/" exact component={Map} />
               <Route path="/data/" exact component={Data} />
-              <Route path="/travel/" exact component={Travel} />
+              <Route path="/donate/" exact component={Donation} />
+              <Route path="/assistance/" exact component={Assistance} />
+              <Route path="/api/seekassist/success/" exact component={Instruction} />
               <Route
                 path="/forgotpassword"
                 exact
@@ -261,8 +343,7 @@ export default class App extends Component {
               textAlign: "center",
               backgroundColor: "#011528",
               color: "#FFFF",
-            }}
-          >
+            }}>
             Novel Life ©2020 Created by Group 25
           </Footer>
         </Layout>
@@ -270,3 +351,5 @@ export default class App extends Component {
     );
   }
 }
+
+

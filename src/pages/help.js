@@ -26,7 +26,7 @@ class Help extends React.Component {
   }
 
   componentDidMount(){
-      Axios.get('http://localhost:8080/api/assist/')
+      Axios.get('https://group25novellife.herokuapp.com/api/assist/')
       .then(res=>{
           this.setState({
             data: res.data
@@ -42,19 +42,21 @@ class Help extends React.Component {
       this.setState({emailValue: e.target.value})
   }
 
+// To capture users complaint
   onComplaintChange = (e) =>{
     this.setState({complaintvalue: e.target.value})
 }
 
+// To send users complaints
 onSubmitform = (e) => {
   e.preventDefault();
-  Axios.post('http://localhost:8080/api/assist/complaint', {
+  Axios.post('https://group25novellife.herokuapp.com/api/assist/complaint', {
     email: this.state.emailValue,
     complaint: this.state.complaintvalue
   })
   .then((response) => {
     this.props.history.push('/');
-    console.log(response);
+    //console.log(response);
   }, (error) => {
     console.log(error);
   });

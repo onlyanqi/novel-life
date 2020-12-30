@@ -28,5 +28,4 @@ UserSchema.methods.validPassword = function(candidatePassword) {
     }
 };
 
-
 module.exports = mongoose.model("NovellifeUser", UserSchema);

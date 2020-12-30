@@ -1,28 +1,28 @@
 import React, { Component } from "react";
-import { Row} from "antd";
+import { Row, message } from "antd";
 import { Form } from "react-bootstrap";
 import Axios from "axios";
 
 const validEmailRegex = RegExp(
-    /^([a-z0-9_\-\.]+)@([a-z0-9_\-\.]+)\.([a-z]{2,5})$/i
-  );
-  const validateForm = (errors) => {
-    let valid = true;
-    Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
-    return valid;
-  };
+  /^([a-z0-9_\-\.]+)@([a-z0-9_\-\.]+)\.([a-z]{2,5})$/i
+);
+const validateForm = (errors) => {
+  let valid = true;
+  Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
+  return valid;
+};
 
 class ForgotPassword extends Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            open: false,
-            formEmail: null,
-            errors:{
-                formEmail: ""
-            },
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      formEmail: null,
+      errors: {
+        formEmail: "",
+      },
+    };
+  }
   handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -47,26 +47,41 @@ class ForgotPassword extends Component {
       errors.formEmail = "Please fill out Email!";
     }
     if (validateForm(errors)) {
-      Axios.get("http://localhost:8000/user/forgotpassword/"+formEmail)
+      Axios.get("https://group25novellife.herokuapp.com/api/user/forgotpassword/" + formEmail)
         .then((response) => {
           if (response.statusText === "OK") {
-            
+            setTimeout(() => {
+              message.success(
+                { content: "New Password has been sent to email", duration: 2 },
+                1000
+              );
+            });
             this.props.history.push("/login");
-            console.log(response);
           }
           // setUserSession(response.data.id, response.data.email)
         })
         .catch((error) => {
-          console.log(error);
+          setTimeout(() => {
+            message.error(
+              { content: "Account doesn't exist", duration: 2 },
+              1000
+            );
+          });
         });
     } else {
-      alert("Invalid Email");
+      setTimeout(() => {
+        message.error(
+          { content: "Please enter a valid email address", duration: 2 },
+          1000
+        );
+      });
     }
     this.setState({ errors, errors });
   };
   render() {
     const { errors } = this.state;
-    return <div>
+    return (
+      <div>
         <Row style={{ justifyContent: "center" }}>
           <h1
             style={{
@@ -142,7 +157,8 @@ class ForgotPassword extends Component {
             </form>
           </Row>
         </div>
-    </div>;
+      </div>
+    );
   }
 }
 

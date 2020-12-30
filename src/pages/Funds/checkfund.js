@@ -1,26 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import PositiveCheck from './positivecheck';
-import NegativeCheck from './negativecheck';
 import  '../Funds/checkfund.css'
 import { Row } from 'antd';
 
 
 const Fund = (props) => {
     return (
-        <Row>
-        <div className="checkwrapper" style={{justifyContent:"center"}}>
-                        <div className ="img" style={{justifyContent:"center"}}>
-                            <p style ={{fontSize : "20px", color:"#FFFF", fontVariant:"small-caps"}}><b>Questionnaire</b></p>
-                        </div>
-
+        <Row style={{height:"100%", padding:"4em"}}>
+        <div >
                         <div class ="checktent" style={{justifyContent:"center"}}>
-                        <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center", color:"#FFFF", fontVariant:"small-caps"}}>Q) Are you a Canadian Citizen or a Permanent Resident?</label>
+                        <label for="yes_no_radio" style ={{fontSize:"30px",textAlign:"center", color:"#FFFF", fontVariant:"small-caps"}}>Are you a Canadian Citizen or a Permanent Resident?</label>
                             <p>
-                            <Link to = "/positivecheck"><button type="button"  onClick = {<positivecheck/>} style ={{fontSize:"20px", margin:"10px", marginTop:"10px", color:"#011528"}}>Yes</button></Link>
+                            <Link to = "/positivecheck"><button type="button"  onClick = {<positivecheck/>} style ={{width:"70px",marginTop:"2em",fontSize:"13px", color:"white", 
+                            backgroundColor:"#2593FC", boxShadow:"0", borderBlockColor:"#2593FC", border:"none", fontFamily: "Roboto Thick, sans-serif",
+                                fontWeight: "200",
+                                padding: "15px",}}>yes</button></Link>
                             </p>
                             <p>
-                            <Link to = "/negativecheck"><button type="button" onClick = {<negativecheck/>} style ={{fontSize:"20px",margin:"10px", color:"#011528"}}>No</button></Link>
+                            <Link to = "/negativecheck"><button type="button" onClick = {<negativecheck/>} style ={{width:"70px",fontSize:"13px",color:"white", backgroundColor:"#2593FC", 
+                            boxShadow:"0", borderBlockColor:"#2593FC", border:"none", fontFamily: "Roboto Thick, sans-serif",
+                                fontWeight: "200",
+                                padding: "15px",}}>no</button></Link>
                             </p>
                         </div>   
                 </div>

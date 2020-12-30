@@ -1,10 +1,12 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 const ProtectedRoute = ({ loggedIn, component: Component, ...rest}) => {
+  const history = useHistory();
   return (
     <Route
     {...rest}
-      render={() => (loggedIn ? <Component /> : <Redirect to="/login" />)}
+      render={() => (loggedIn ? <Component history={history} /> : <Redirect to="/login" />)}
     />
   );
 };
