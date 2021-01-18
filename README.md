@@ -40,8 +40,8 @@ The Travel Advisory function should provide recent and accurate travel restricti
 ## Deployment
 
 This assignment is available on GitHub and Heroku:
-* GIT Repository Link: https://github.com/Shivam1805/Group25_Novel_Life.git
-* Heroku Deployment Link: https://novellife.herokuapp.com/
+* GIT Repository Link: https://github.com/onlyanqi/novel-life.git
+* Heroku Deployment Link: mynovellife.herokuapp.com/
 
 ## Built With
 
