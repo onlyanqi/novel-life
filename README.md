@@ -16,7 +16,7 @@
 - [References](#references)
 
 ## Live display
-[Novel Life App deployed to Heroku](https://g25novellife.herokuapp.com/)
+[Novel Life App deployed to Heroku](https://mynovellife.herokuapp.com/)
 
 ## Introduction
 
@@ -41,7 +41,7 @@ The Travel Advisory function should provide recent and accurate travel restricti
 
 This assignment is available on GitHub and Heroku:
 * GIT Repository Link: https://github.com/onlyanqi/novel-life.git
-* Heroku Deployment Link: mynovellife.herokuapp.com/
+* Heroku Deployment Link: https://mynovellife.herokuapp.com/
 
 ## Built With
 
